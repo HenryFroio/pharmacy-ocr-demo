@@ -2,7 +2,7 @@
 
 > **⚠️ DATA ENGINEERING PORTFOLIO PROJECT**  
 > This is a sanitized version of a production **OCR data pipeline** developed for CSP COMERCIO DE MEDICAMENTOS LTDA.  
-> Demonstrates **document processing automation**, **AI-powered data extraction**, and **real-time data ingestion** pipelines.  
+> Demonstrates **document processing automation**, **AI-powered data extraction**, and **real-time data ingestion** pipelines for pharmacy delivery management systems.  
 > **🎯 PURPOSE:** Showcase Data Engineering skills in document processing, ETL pipelines, and intelligent data extraction
 
 [![OCR Pipeline](https://img.shields.io/badge/OCR-Pipeline-red.svg)](https://azure.microsoft.com/services/cognitive-services/)
@@ -11,14 +11,14 @@
 [![Document Processing](https://img.shields.io/badge/Document-Processing-orange.svg)](https://reactjs.org)
 [![AI Data Mining](https://img.shields.io/badge/AI-Data_Mining-purple.svg)](https://tailwindcss.com)
 
-> **Production-scale document processing platform** demonstrating **intelligent data extraction**, **automated ETL pipelines**, **dual-engine OCR architecture**, and **real-time data ingestion** for healthcare logistics automation
+> **Production-scale document processing platform** demonstrating **intelligent data extraction**, **automated ETL pipelines**, **dual-engine OCR architecture**, and **real-time data ingestion** for pharmacy delivery automation
 
 A comprehensive **data engineering solution** showcasing **document-to-database pipelines**, **AI-powered data extraction**, **real-time data processing**, and **automated data validation** for pharmacy order digitization workflows.
 
 ## 🏗️ **Data Engineering Architecture & Pipeline Stack**
 
 ### **📊 Document Data Ingestion Layer**
-- **Multi-format document processing** (images, PDFs, screenshots)
+- **Screenshot processing** (sales screen captures in multiple image formats)
 - **Real-time file upload handling** with validation and preprocessing
 - **Automated image optimization** and quality enhancement
 - **Batch processing capabilities** for high-volume document processing
@@ -45,8 +45,7 @@ A comprehensive **data engineering solution** showcasing **document-to-database 
 
 ### **☁️ Cloud Data Infrastructure & Storage**
 - **Firebase Firestore** (Real-time NoSQL database for processed data storage)
-- **Firebase Functions** (Serverless data processing and validation functions)
-- **Firebase Hosting** (Web application deployment and content delivery)
+- **Firebase Hosting** (Web application deployment and all ETL processing functions)
 - **Azure Cognitive Services** (Enterprise-grade OCR processing API)
 - **Cloud-based file storage** with automatic backup and versioning
 
@@ -57,7 +56,7 @@ A comprehensive **data engineering solution** showcasing **document-to-database 
 **Pharmacy OCR** implements a **production-grade document processing pipeline** serving as the **primary data entry point** for the Farmanossa delivery ecosystem:
 
 ### **Core Data Engineering Capabilities**
-- 🔄 **Document-to-Database ETL Pipeline** processing 100+ documents daily
+- 🔄 **Document-to-Database ETL Pipeline** processing 1,000+ documents daily
 - 📊 **Intelligent Data Extraction** with 95%+ accuracy in field recognition
 - 🏗️ **Real-time data validation** and business rule enforcement
 - 📍 **Automated data cleansing** and normalization workflows
@@ -67,7 +66,7 @@ A comprehensive **data engineering solution** showcasing **document-to-database 
 ### **Production Performance Metrics**
 - **Processing Speed**: <3 seconds per document (image to structured data)
 - **Accuracy Rate**: 95%+ for customer data, phone numbers, and addresses
-- **Throughput**: 500+ documents processed daily in production
+- **Throughput**: 1,000+ documents processed daily in production
 - **Data Quality**: 99%+ accuracy after validation and cleansing
 - **Pipeline Uptime**: 99.9% availability with automatic error recovery
 
@@ -92,29 +91,13 @@ Firebase Integration → Real-time Availability in Delivery App
 
 ## 📊 **Data Engineering Capabilities & Use Cases**
 
-### **🔄 Document Processing ETL Pipeline**
-- **Automated data extraction** from unstructured pharmacy documentation
-- **Real-time data transformation** with intelligent field mapping and validation
-- **Error handling and data quality assurance** with automatic retry mechanisms
-- **Scalable processing architecture** handling 500+ documents daily
-- **Data lineage tracking** for complete audit trails and compliance
-
 ### **🧠 Intelligent Data Mining & Pattern Recognition**
-- **Advanced OCR processing** with dual-engine architecture for maximum accuracy
 - **Natural Language Processing** for field identification and data extraction
 - **Pattern recognition algorithms** for consistent data structure identification
 - **Machine learning-enhanced** field detection and validation
 - **Confidence scoring** and quality assessment for extracted data
 
-### **📈 Real-Time Data Processing & Analytics**
-- **Stream processing** for immediate data availability in downstream systems
-- **Real-time data validation** with business rule enforcement
-- **Performance monitoring** with processing metrics and error tracking
-- **Data quality dashboards** showing extraction accuracy and pipeline health
-- **Automated alerting** for processing failures and data quality issues
-
-### **🔗 Data Integration & Pipeline Orchestration**
-- **Firebase integration** for real-time data synchronization
+### ** Data Integration & Pipeline Orchestration**
 - **API-first architecture** for seamless integration with delivery systems
 - **Event-driven processing** with automatic downstream notifications
 - **Microservices compatibility** for scalable data architecture
@@ -176,7 +159,7 @@ Firebase Integration → Real-time Availability in Delivery App
 ```
 
 ### **Document-to-Database ETL Workflow**
-1. **Data Ingestion**: Multi-format document upload with validation and preprocessing
+1. **Data Ingestion**: Sales screen screenshot upload with validation and preprocessing
 2. **OCR Processing**: Dual-engine text extraction for maximum accuracy and reliability
 3. **Data Parsing**: Intelligent field identification using pattern recognition and NLP
 4. **Data Validation**: Business rule validation with automated error correction
@@ -184,113 +167,12 @@ Firebase Integration → Real-time Availability in Delivery App
 6. **Database Integration**: Real-time data insertion with conflict resolution
 7. **Pipeline Monitoring**: Performance tracking and data quality metrics
 
-## 🔧 **Data Engineering Setup & Development Environment**
-
-### **Prerequisites for Document Processing Pipeline**
-```bash
-Node.js >= 16.x (JavaScript runtime for data processing)
-npm or yarn (Package management for dependencies)
-Firebase CLI (Cloud data platform management)
-Azure Cognitive Services API (Enterprise OCR processing)
-Git (Version control for pipeline code)
-```
-
-### **1. Clone the Document Processing Repository**
-```bash
-git clone https://github.com/henryfroio/pharmacy-ocr-demo.git
-cd pharmacy-ocr-demo
-```
-
-### **2. Install Data Processing Dependencies**
-```bash
-# Install main application dependencies
-npm install
-
-# Install additional data processing libraries
-npm install --save tesseract.js axios firebase
-```
-
-### **3. Configure Data Pipeline Environment**
-```bash
-# Copy environment template
-cp .env.example .env
-
-# Configure data processing APIs and credentials
-REACT_APP_AZURE_OCR_ENDPOINT=your_azure_cognitive_services_endpoint
-REACT_APP_AZURE_OCR_KEY=your_azure_ocr_api_key
-REACT_APP_FIREBASE_API_KEY=your_firebase_data_platform_key
-REACT_APP_FIREBASE_PROJECT_ID=your_firebase_project_id
-# ... other data pipeline configurations (see .env.example)
-```
-
-### **4. Setup Cloud Data Infrastructure**
-- Create a Firebase project at [Firebase Console](https://console.firebase.google.com)
-- Configure Firestore database for processed document data storage
-- Setup Azure Cognitive Services for enterprise OCR processing
-- Configure Firebase Hosting for web application deployment
-
-### **5. Run the Document Processing Pipeline**
-
-#### **Development Mode (Local Processing)**
-```bash
-# Start the development server
-npm start
-
-# Application available at http://localhost:3000
-# Local document processing with Tesseract.js fallback
-```
-
-#### **Production Mode (Cloud Processing)**
-```bash
-# Build for production deployment
-npm run build
-
-# Deploy to Firebase Hosting
-firebase deploy
-
-# Production processing with Azure OCR + Firebase integration
-```
-
-## 🚀 **Data Pipeline Deployment & Production**
-
-### **Cloud Deployment Options**
-
-#### **Firebase Hosting (Recommended)**
-```bash
-# Install Firebase CLI
-npm install -g firebase-tools
-
-# Login to Firebase
-firebase login
-
-# Initialize Firebase project
-firebase init hosting
-
-# Deploy to production
-firebase deploy --only hosting
-```
-
-#### **Manual Cloud Deployment**
-```bash
-# Build production bundle
-npm run build
-
-# Deploy to your preferred cloud provider
-# (AWS S3, Google Cloud Storage, Netlify, etc.)
-```
-
-### **Data Processing Monitoring**
-- **Firebase Console**: Real-time database monitoring and analytics
-- **Azure Portal**: OCR processing metrics and usage statistics
-- **Application Logs**: Detailed processing logs and error tracking
-- **Performance Metrics**: Document processing speed and accuracy rates
-
 ## 📊 **Data Engineering Performance & Metrics**
 
 ### **🔍 Document Processing Performance**
 - **95%+ data extraction accuracy** from pharmacy sales screens
 - **Sub-3 second processing time** per document (end-to-end pipeline)
-- **500+ documents processed daily** with 99.9% uptime
+- **1,000+ documents processed daily** with 99.9% uptime
 - **Dual-engine reliability** with automatic fallback processing
 
 ### **⚡ Real-Time Data Pipeline Performance**
@@ -323,7 +205,7 @@ Firebase Integration → 📱 Farmanossa Mobile App → Delivery Assignment
 
 ### **Integrated Data Pipeline Benefits**
 - **100% digital transformation**: Eliminates manual data entry
-- **60% faster order processing**: From sale to delivery assignment
+- **Enables seamless integration**: Bridges pharmacy POS systems without APIs to delivery management system
 - **95% reduction in data errors**: Automated validation and cleansing
 - **Real-time business intelligence**: Immediate insights and analytics
 
@@ -341,7 +223,7 @@ This project showcases advanced **Data Engineering capabilities**:
 - ✅ **System Integration**: Seamless data flow between multiple platforms
 
 ### **Business Impact & Data Value**
-- 📈 **Operational Efficiency**: 60% faster order-to-delivery workflow
+- 📈 **System Integration**: Enables communication between non-API pharmacy systems and modern delivery management
 - 🎯 **Data Accuracy**: 95% improvement over manual data entry
 - 🚀 **Scalability**: Cloud-native architecture supporting business growth
 - 💡 **Innovation**: AI-powered document processing automation
@@ -362,38 +244,25 @@ This is a **Data Engineering portfolio project** developed for **CSP COMERCIO DE
 - ❌ **Commercial Use**: Proprietary system, not for redistribution
 - ❌ **Code Replication**: Protected intellectual property
 
-## 📞 **Professional Contact - Data Engineering Specialist**
+## 📞 **Professional Developer**
 
 **Henry Froio**  
-*Data Engineer & Full-Stack Developer*
+*Data Engineer & Software Engineer*
 
-Specialized in **document processing automation**, **real-time data pipelines**, and **AI-powered data extraction** for healthcare and logistics industries.
-
-**Core Expertise:**
-- 🔄 **ETL/ELT Pipeline Development** (Python, Node.js, Cloud Functions)
-- 📊 **Real-time Data Processing** (Firebase, Kafka, Streaming Analytics)
-- 🧠 **AI/ML Data Integration** (OCR, NLP, Computer Vision APIs)
-- ☁️ **Cloud Data Architecture** (GCP, AWS, Azure, Serverless)
-- 📈 **Data Quality Engineering** (Validation, Monitoring, Alerting)
-
-**Contact Information:**
-- 📧 **Email:** henry.froio@outlook.com
-- 💼 **LinkedIn:** https://www.linkedin.com/in/henry-matheus-nascimento-froio-827816238/
-- 🌐 **Portfolio:** henryfroio.com
-- 🔗 **GitHub:** https://github.com/HenryFroio
-
-### **Related Data Engineering Projects:**
-- 🏥 **Farmanossa Delivery Platform** - Real-time data streaming and geospatial analytics
-- 📊 **Modern Data Lakehouse** - Delta Lake, dbt, and analytical data processing
-- 🛠️ **Data Engineering Infrastructure** - Apache Airflow, Spark, and pipeline orchestration
-- 🤖 **ML Feature Store** - Feast-based feature engineering and model data management
+📧 henry.froio@outlook.com  
+� [LinkedIn](https://www.linkedin.com/in/henry-froio-827816238/)  
+� [GitHub](https://github.com/HenryFroio)  
+� [Portfolio](https://henryfroio.com)
 
 ---
 
 ⭐ **If this document processing pipeline demonstrates valuable data engineering skills for your team, please star the repository!**
 
 **Keywords:** Data Engineering, OCR, Document Processing, ETL Pipeline, Real-time Data, Firebase, Azure Cognitive Services, React, Healthcare Tech, Automation
-- **Offline capability** with service worker caching
+
+---
+
+> **⚠️ Note:** This is a DEMO project for portfolio purposes. All Firebase configurations and API keys need to be replaced with your own credentials for full functionality.
 
 ## 🔐 **Security & Data Privacy**
 
@@ -427,20 +296,25 @@ Firebase Sync → Delivery App Notification → Driver Assignment
 - **60% redução** no tempo de criação de pedidos
 - **Real-time availability** de pedidos no app de entrega
 
-## 👨‍💻 **Desenvolvedor**
+## 👨‍💻 **Professional Developer**
 
 **Henry Froio**  
+*Data Engineer & Software Engineer*
+
 📧 henry.froio@outlook.com  
-🔗 [LinkedIn](https://linkedin.com/in/henry-froio)  
-🐙 [GitHub](https://github.com/henryfroio)  
+🔗 [LinkedIn](https://www.linkedin.com/in/henry-froio-827816238/)  
+🐙 [GitHub](https://github.com/HenryFroio)  
 🌐 [Portfolio](https://henryfroio.com)
 
+## 📄 **License**
+
+**Proprietary Software License**  
+© 2025 CSP COMERCIO DE MEDICAMENTOS LTDA. All rights reserved.
+
+This software is proprietary and confidential to CSP COMERCIO DE MEDICAMENTOS LTDA. Unauthorized use, distribution, or modification is strictly prohibited.
+
+For licensing inquiries: henry.froio@csp-medicamentos.com.br
+
 ---
 
-## 📄 **Licença**
-
-Este projeto está sob a licença MIT. Veja o arquivo [LICENSE](LICENSE) para mais detalhes.
-
----
-
-> **⚠️ Lembrete:** Este é um projeto DEMO para fins de portfólio. Todas as configurações do Firebase e chaves de API precisam ser substituídas pelas suas próprias credenciais para funcionamento completo.
+**Keywords:** Data Engineering, OCR, Document Processing, ETL Pipeline, Real-time Data, Firebase, Azure Cognitive Services, React, Pharmacy Management, Automation
