@@ -228,23 +228,7 @@ This project showcases advanced **Data Engineering capabilities**:
 - 🚀 **Scalability**: Cloud-native architecture supporting business growth
 - 💡 **Innovation**: AI-powered document processing automation
 
-## 📄 **License & Portfolio Usage**
-
-This is a **Data Engineering portfolio project** developed for **CSP COMERCIO DE MEDICAMENTOS LTDA**.
-
-**Project Information:**
-- 🏢 **Client:** CSP COMERCIO DE MEDICAMENTOS LTDA
-- 👨‍💻 **Data Engineer:** Henry Froio
-- 📅 **Development:** 2024-2025
-- 🎯 **Purpose:** Pharmacy logistics automation and data engineering showcase
-
-**Portfolio Rights:**
-- ✅ **Technical Evaluation**: Available for employer assessment
-- ✅ **Skills Demonstration**: Showcases data engineering capabilities
-- ❌ **Commercial Use**: Proprietary system, not for redistribution
-- ❌ **Code Replication**: Protected intellectual property
-
-## 📞 **Professional Developer**
+## ‍💻 **Professional Developer**
 
 **Henry Froio**  
 *Data Engineer & Software Engineer*
