@@ -1,4 +1,4 @@
-# Pharmacy OCR: Intelligent Document Processing Pipeline - DATA ENGINEERING DEMO
+# Pharmacy OCR - DATA ENGINEERING DEMO
 
 > **⚠️ DATA ENGINEERING PORTFOLIO PROJECT**  
 > This is a sanitized version of a production **OCR data pipeline** developed for CSP COMERCIO DE MEDICAMENTOS LTDA.  
@@ -30,20 +30,20 @@ A comprehensive **data engineering solution** showcasing **document-to-database 
 - **Confidence scoring** and quality validation for extracted data
 - **95%+ accuracy** in structured document text extraction
 
-### **⚡ Real-Time Data Processing & ETL Pipeline**
+### Real-Time Data Processing & ETL Pipeline
 - **Document-to-structured-data transformation** with intelligent field mapping
 - **Real-time data validation** and business rule enforcement
 - **Automated data cleansing** and normalization processes
 - **Error handling and retry mechanisms** for failed extractions
 - **Data quality monitoring** with comprehensive logging
 
-### **📱 Web-Based Data Processing Interface**
+### Web-Based Data Processing Interface
 - **React 18** for modern, responsive data processing interface
 - **Real-time progress tracking** for document processing workflows
 - **Interactive data validation** and manual correction capabilities
 - **Batch processing dashboard** for operational monitoring
 
-### **☁️ Cloud Data Infrastructure & Storage**
+### Cloud Data Infrastructure & Storage
 - **Firebase Firestore** (Real-time NoSQL database for processed data storage)
 - **Firebase Hosting** (Web application deployment and all ETL processing functions)
 - **Azure Cognitive Services** (Enterprise-grade OCR processing API)
@@ -55,13 +55,13 @@ A comprehensive **data engineering solution** showcasing **document-to-database 
 
 **Pharmacy OCR** implements a **production-grade document processing pipeline** serving as the **primary data entry point** for the Farmanossa delivery ecosystem:
 
-### **Core Data Engineering Capabilities**
-- 🔄 **Document-to-Database ETL Pipeline** processing 1,000+ documents daily
-- 📊 **Intelligent Data Extraction** with 95%+ accuracy in field recognition
-- 🏗️ **Real-time data validation** and business rule enforcement
-- 📍 **Automated data cleansing** and normalization workflows
-- 🔍 **Dual-engine processing** for optimal accuracy and cost efficiency
-- 📈 **Real-time processing metrics** and pipeline monitoring
+### Core Data Engineering Capabilities
+- Document-to-Database ETL Pipeline processing 1,000+ documents daily
+- Intelligent Data Extraction with 95%+ accuracy in field recognition
+- Real-time data validation and business rule enforcement
+- Automated data cleansing and normalization workflows
+- Dual-engine processing for optimal accuracy and cost efficiency
+- Real-time processing metrics and pipeline monitoring
 
 ### **Production Performance Metrics**
 - **Processing Speed**: <3 seconds per document (image to structured data)
@@ -91,19 +91,19 @@ Firebase Integration → Real-time Availability in Delivery App
 
 ## Data Engineering Capabilities & Use Cases
 
-### **🧠 Intelligent Data Mining & Pattern Recognition**
+### Intelligent Data Mining & Pattern Recognition
 - **Natural Language Processing** for field identification and data extraction
 - **Pattern recognition algorithms** for consistent data structure identification
 - **Machine learning-enhanced** field detection and validation
 - **Confidence scoring** and quality assessment for extracted data
 
-### ** Data Integration & Pipeline Orchestration**
+### Data Integration & Pipeline Orchestration
 - **API-first architecture** for seamless integration with delivery systems
 - **Event-driven processing** with automatic downstream notifications
 - **Microservices compatibility** for scalable data architecture
 - **Cloud-native deployment** with serverless auto-scaling capabilities
 
-### **🔄 Real-time Data Integration**
+### Real-time Data Integration
 - **Instant order creation** in Farmanossa delivery system
 - **Live order status updates** across all connected applications
 - **Customer notification triggers** for order confirmation
@@ -169,19 +169,19 @@ Firebase Integration → Real-time Availability in Delivery App
 
 ## Data Engineering Performance & Metrics
 
-### **🔍 Document Processing Performance**
+### Document Processing Performance
 - **95%+ data extraction accuracy** from pharmacy sales screens
 - **Sub-3 second processing time** per document (end-to-end pipeline)
 - **1,000+ documents processed daily** with 99.9% uptime
 - **Dual-engine reliability** with automatic fallback processing
 
-### **⚡ Real-Time Data Pipeline Performance**
+### Real-Time Data Pipeline Performance
 - **<500ms database write latency** for extracted order data
 - **Real-time data synchronization** across all connected systems
 - **Concurrent document processing** with parallel OCR operations
 - **Memory-efficient data processing** optimized for large document batches
 
-### **🏗️ Scalable Data Architecture**
+### Scalable Data Architecture
 - **Serverless cloud infrastructure** with automatic scaling
 - **Event-driven data processing** with Firebase Functions
 - **Real-time data streaming** to downstream delivery systems
@@ -209,7 +209,7 @@ Firebase Integration → 📱 Farmanossa Mobile App → Delivery Assignment
 - **95% reduction in data errors**: Automated validation and cleansing
 - **Real-time business intelligence**: Immediate insights and analytics
 
-## 🤝 **Data Engineering Portfolio Project**
+## Data Engineering Portfolio Project
 
 ### **Technical Expertise Demonstrated**
 This project showcases advanced **Data Engineering capabilities**:
@@ -228,7 +228,7 @@ This project showcases advanced **Data Engineering capabilities**:
 - 🚀 **Scalability**: Cloud-native architecture supporting business growth
 - 💡 **Innovation**: AI-powered document processing automation
 
-## ‍💻 **Professional Developer**
+## Professional Developer
 
 **Henry Froio**  
 *Data Engineer & Software Engineer*
@@ -248,16 +248,16 @@ This project showcases advanced **Data Engineering capabilities**:
 
 > **⚠️ Note:** This is a DEMO project for portfolio purposes. All Firebase configurations and API keys need to be replaced with your own credentials for full functionality.
 
-## 🔐 **Security & Data Privacy**
+## Security & Data Privacy
 
-### **🛡️ Production-Grade Security**
+### Production-Grade Security
 - **Firebase Authentication** with secure session management
 - **Rule-based database security** with granular permissions
 - **HTTPS-only communication** with encrypted data transmission
 - **Client-side data validation** with server-side verification
 - **Audit logging** for all data extraction activities
 
-### **📋 Compliance & Data Handling**
+### Compliance & Data Handling
 - **LGPD compliance** for Brazilian healthcare data regulations
 - **Automatic PII detection** and optional data masking
 - **Retention policies** with automatic data cleanup
@@ -267,14 +267,14 @@ This project showcases advanced **Data Engineering capabilities**:
 
 Este sistema OCR é o **ponto de entrada principal** do ecossistema Farmanossa, processando telas de vendas e criando pedidos automaticamente no app de delivery:
 
-### **📋 Complete Integration Workflow:**
+### Complete Integration Workflow:
 ```javascript
 Sales Screen Photo → OCR Processing → Data Extraction → 
 Customer Parsing → Product Recognition → Order Creation →
 Firebase Sync → Delivery App Notification → Driver Assignment
 ```
 
-### **🎯 Business Impact:**
+### Business Impact:
 - **100% eliminação** de entrada manual de dados
 - **95% melhoria** na precisão vs entrada manual  
 - **60% redução** no tempo de criação de pedidos
@@ -290,7 +290,7 @@ Firebase Sync → Delivery App Notification → Driver Assignment
 🐙 [GitHub](https://github.com/HenryFroio)  
 🌐 [Portfolio](https://henryfroio.com)
 
-## 📄 **License**
+## License
 
 **Proprietary Software License**  
 © 2025 CSP COMERCIO DE MEDICAMENTOS LTDA. All rights reserved.
