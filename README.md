@@ -1,9 +1,9 @@
-# 💊 Pharmacy OCR: Intelligent Document Processing Pipeline - DATA ENGINEERING DEMO
+# Pharmacy OCR: Intelligent Document Processing Pipeline - DATA ENGINEERING DEMO
 
 > **⚠️ DATA ENGINEERING PORTFOLIO PROJECT**  
 > This is a sanitized version of a production **OCR data pipeline** developed for CSP COMERCIO DE MEDICAMENTOS LTDA.  
 > Demonstrates **document processing automation**, **AI-powered data extraction**, and **real-time data ingestion** pipelines for pharmacy delivery management systems.  
-> **🎯 PURPOSE:** Showcase Data Engineering skills in document processing, ETL pipelines, and intelligent data extraction
+> **PURPOSE:** Showcase Data Engineering skills in document processing, ETL pipelines, and intelligent data extraction
 
 [![OCR Pipeline](https://img.shields.io/badge/OCR-Pipeline-red.svg)](https://azure.microsoft.com/services/cognitive-services/)
 [![Data Extraction](https://img.shields.io/badge/Data-Extraction-blue.svg)](https://tesseract.projectnaptha.com/)
@@ -15,15 +15,15 @@
 
 A comprehensive **data engineering solution** showcasing **document-to-database pipelines**, **AI-powered data extraction**, **real-time data processing**, and **automated data validation** for pharmacy order digitization workflows.
 
-## 🏗️ **Data Engineering Architecture & Pipeline Stack**
+## Data Engineering Architecture & Pipeline Stack
 
-### **📊 Document Data Ingestion Layer**
+### Document Data Ingestion Layer
 - **Screenshot processing** (sales screen captures in multiple image formats)
 - **Real-time file upload handling** with validation and preprocessing
 - **Automated image optimization** and quality enhancement
 - **Batch processing capabilities** for high-volume document processing
 
-### **🧠 Dual-Engine OCR Processing Architecture**
+### Dual-Engine OCR Processing Architecture
 - **Primary Engine**: Azure Cognitive Services for high-accuracy enterprise OCR
 - **Fallback Engine**: Tesseract.js for offline processing and cost optimization
 - **Intelligent engine selection** based on document type and quality
