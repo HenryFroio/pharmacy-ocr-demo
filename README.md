@@ -51,7 +51,7 @@ A comprehensive **data engineering solution** showcasing **document-to-database 
 
 ---
 
-## 🚀 **Document Processing Data Engineering Overview**
+## Document Processing Data Engineering Overview
 
 **Pharmacy OCR** implements a **production-grade document processing pipeline** serving as the **primary data entry point** for the Farmanossa delivery ecosystem:
 
@@ -70,7 +70,7 @@ A comprehensive **data engineering solution** showcasing **document-to-database 
 - **Data Quality**: 99%+ accuracy after validation and cleansing
 - **Pipeline Uptime**: 99.9% availability with automatic error recovery
 
-## 🛠️ **Document Processing Data Pipeline Architecture**
+## Document Processing Data Pipeline Architecture
 
 ### **End-to-End Document Processing Flow**
 ```
@@ -89,7 +89,7 @@ Firebase Integration → Real-time Availability in Delivery App
 7. **Database Integration**: Real-time data insertion into Firestore
 8. **Pipeline Monitoring**: Performance metrics and error tracking
 
-## 📊 **Data Engineering Capabilities & Use Cases**
+## Data Engineering Capabilities & Use Cases
 
 ### **🧠 Intelligent Data Mining & Pattern Recognition**
 - **Natural Language Processing** for field identification and data extraction
@@ -110,7 +110,7 @@ Firebase Integration → Real-time Availability in Delivery App
 - **Analytics integration** for business intelligence and reporting
 - **Audit trail logging** for compliance and quality assurance
 
-## 🏗️ **System Architecture & Data Flow**
+## System Architecture & Data Flow
 
 ### **OCR Processing Pipeline**
 ```
@@ -167,7 +167,7 @@ Firebase Integration → Real-time Availability in Delivery App
 6. **Database Integration**: Real-time data insertion with conflict resolution
 7. **Pipeline Monitoring**: Performance tracking and data quality metrics
 
-## 📊 **Data Engineering Performance & Metrics**
+## Data Engineering Performance & Metrics
 
 ### **🔍 Document Processing Performance**
 - **95%+ data extraction accuracy** from pharmacy sales screens
@@ -187,7 +187,7 @@ Firebase Integration → Real-time Availability in Delivery App
 - **Real-time data streaming** to downstream delivery systems
 - **Data quality monitoring** with automated validation and alerts
 
-## 🔗 **Integration with Farmanossa Delivery Ecosystem**
+## Integration with Farmanossa Delivery Ecosystem
 
 ### **Seamless Data Flow Integration**
 This OCR system serves as the **primary data entry point** for the complete Farmanossa delivery platform:
@@ -263,7 +263,7 @@ This project showcases advanced **Data Engineering capabilities**:
 - **Retention policies** with automatic data cleanup
 - **Export capabilities** for data portability requirements
 
-## 🔗 **Integration with Farmanossa Ecosystem**
+## Integration with Farmanossa Ecosystem
 
 Este sistema OCR é o **ponto de entrada principal** do ecossistema Farmanossa, processando telas de vendas e criando pedidos automaticamente no app de delivery:
 
@@ -280,7 +280,7 @@ Firebase Sync → Delivery App Notification → Driver Assignment
 - **60% redução** no tempo de criação de pedidos
 - **Real-time availability** de pedidos no app de entrega
 
-## 👨‍💻 **Professional Developer**
+## About the Developer
 
 **Henry Froio**  
 *Data Engineer & Software Engineer*
