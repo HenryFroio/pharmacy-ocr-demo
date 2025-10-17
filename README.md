@@ -92,6 +92,71 @@ JavaScript/TypeScript • React • Node.js • Cloud Functions
 - **Intelligent routing** - Quality-based engine selection
 - **Confidence scoring** - Automatic validation thresholds
 
+<details>
+<summary>📝 View OCR Processing Code</summary>
+
+```javascript
+/**
+ * Azure Cognitive Services OCR Integration
+ * Processes pharmacy sales screenshots with high accuracy
+ */
+export const useImageProcessing = (AZURE_ENDPOINT, AZURE_API_KEY) => {
+  const processImage = async (file) => {
+    try {
+      // Convert image to base64
+      const base64Image = await new Promise((resolve, reject) => {
+        const reader = new FileReader();
+        reader.onload = () => resolve(reader.result.split(',')[1]);
+        reader.onerror = (error) => reject(error);
+        reader.readAsDataURL(file);
+      });
+
+      // Azure Computer Vision API endpoint
+      const apiUrl = `${AZURE_ENDPOINT}computervision/imageanalysis:analyze?api-version=2024-02-01&features=caption,read&model-version=latest&language=en`;
+      
+      // Convert base64 to binary
+      const binaryString = window.atob(base64Image);
+      const bytes = new Uint8Array(binaryString.length);
+      for (let i = 0; i < binaryString.length; i++) {
+        bytes[i] = binaryString.charCodeAt(i);
+      }
+
+      // Call Azure OCR API
+      const response = await fetch(apiUrl, {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/octet-stream',
+          'Ocp-Apim-Subscription-Key': AZURE_API_KEY
+        },
+        body: bytes
+      });
+
+      if (!response.ok) {
+        throw new Error(`OCR failed: ${response.status}`);
+      }
+
+      const responseData = await response.json();
+      
+      // Extract text from OCR response
+      if (responseData.readResult?.blocks?.[0]?.lines) {
+        const lines = responseData.readResult.blocks[0].lines;
+        const extractedText = lines.map(line => line.text).join('\n');
+        return extractedText;
+      }
+      
+      return '';
+    } catch (error) {
+      console.error('OCR processing error:', error);
+      throw error;
+    }
+  };
+
+  return { processImage };
+};
+```
+
+</details>
+
 **Impact:**
 - ✅ **95%+ accuracy** in field extraction
 - ✅ **99.9% uptime** with automatic fallback
@@ -114,6 +179,111 @@ JavaScript/TypeScript • React • Node.js • Cloud Functions
 7. **Sync** - Real-time Firestore integration
 8. **Notify** - Instant app notification to delivery team
 
+<details>
+<summary>📝 View Firebase Integration Code</summary>
+
+```javascript
+/**
+ * Firebase Order Management with Duplicate Detection
+ * Real-time sync with Firestore database
+ */
+export const useFirebaseOrders = (user) => {
+  const [isSaving, setIsSaving] = useState(false);
+
+  // Generate human-readable order ID (6 chars, no ambiguous characters)
+  const generateEasyOrderId = async () => {
+    const chars = 'ABCDEFGHJKLMNPQRSTUVWXYZ23456789'; // No I, O, 1, 0
+    const idLength = 6;
+    let newOrderId = '';
+    let idExists = true;
+
+    while (idExists) {
+      // Generate random 6-character ID
+      newOrderId = Array.from(
+        { length: idLength }, 
+        () => chars[Math.floor(Math.random() * chars.length)]
+      ).join('');
+      
+      // Check if ID already exists in Firestore
+      const docRef = doc(collection(db, 'orders'), newOrderId);
+      const docSnap = await getDoc(docRef);
+      idExists = docSnap.exists();
+    }
+
+    return newOrderId;
+  };
+
+  const saveOrder = async (extractedData) => {
+    setIsSaving(true);
+    
+    try {
+      // Duplicate detection (last 20 minutes)
+      const twentyMinutesAgo = new Date(Date.now() - 20 * 60 * 1000);
+      const ordersRef = collection(db, 'orders');
+      const q = query(
+        ordersRef, 
+        where('createdAt', '>=', Timestamp.fromDate(twentyMinutesAgo))
+      );
+      const querySnapshot = await getDocs(q);
+
+      // Check for duplicate orders
+      const newOrderPrice = parseFloat(extractedData.totalValue.replace(',', '.'));
+
+      for (const doc of querySnapshot.docs) {
+        const existing = doc.data();
+        
+        // Deep compare items array
+        const itemsMatch = existing.items.length === extractedData.products.length &&
+          existing.items.every((item, index) =>
+            item.name === extractedData.products[index].name &&
+            item.quantity === extractedData.products[index].quantity &&
+            item.price === extractedData.products[index].price
+          );
+
+        if (
+          existing.customerName === extractedData.clientName &&
+          existing.address === extractedData.address &&
+          itemsMatch &&
+          existing.priceNumber === newOrderPrice
+        ) {
+          throw new Error('Duplicate order detected (last 20 minutes)');
+        }
+      }
+
+      // Generate order ID if not provided
+      const orderId = extractedData.orderId || await generateEasyOrderId();
+
+      // Save to Firestore
+      await setDoc(doc(db, 'orders', orderId), {
+        orderId,
+        customerName: extractedData.clientName,
+        customerPhone: extractedData.phone,
+        address: extractedData.address,
+        items: extractedData.products,
+        priceNumber: newOrderPrice,
+        status: 'Aguardando Aceite',
+        createdAt: serverTimestamp(),
+        pharmacyUnit: user?.unit,
+        createdBy: user?.displayName
+      });
+
+      console.log('✅ Order saved successfully:', orderId);
+      return orderId;
+      
+    } catch (error) {
+      console.error('❌ Error saving order:', error);
+      throw error;
+    } finally {
+      setIsSaving(false);
+    }
+  };
+
+  return { saveOrder, generateEasyOrderId, isSaving };
+};
+```
+
+</details>
+
 **Impact:**
 - ✅ **<5 seconds** end-to-end processing
 - ✅ **100% automation** without manual intervention
@@ -132,6 +302,136 @@ JavaScript/TypeScript • React • Node.js • Cloud Functions
 - **Pattern matching** - Regex-based field extraction
 - **Confidence scoring** - Quality thresholds per field
 - **Automated cleansing** - Standardization and normalization
+
+<details>
+<summary>📝 View Data Extraction & Validation Code</summary>
+
+```javascript
+/**
+ * Intelligent Data Extraction with Pattern Recognition
+ * Extracts customer info, address, products from raw OCR text
+ */
+export const extractRelevantData = (lines, existingData = null) => {
+  const linesArray = lines.split('\n');
+
+  // Find client name with validation
+  const findClientName = (lines) => {
+    // Invalid keywords to ignore
+    const invalidKeywords = [
+      'convênio', 'convenio', 'conheça', 'conheca',
+      'endereço', 'endereco', 'dúvidas', 'duvidas',
+      'cpf', 'cartão', 'cartao', 'base de conhecimento'
+    ].map(word => word.toLowerCase());
+
+    // Validate potential name
+    const isValidName = (name) => {
+      if (!name || name.length < 2) return false;
+      
+      const lowerName = name.toLowerCase();
+      
+      // Check for invalid keywords
+      if (invalidKeywords.some(keyword => lowerName.includes(keyword))) {
+        return false;
+      }
+
+      // Reject highly improbable characters
+      if (/[%$@&*#<>{}[\]\/\\|+=~`^]/.test(name)) {
+        return false;
+      }
+
+      // Reject lines with too many digits (likely codes/phones)
+      const digitCount = (name.match(/\d/g) || []).length;
+      if (digitCount > 4 || digitCount / name.length > 0.3) {
+        return false;
+      }
+
+      return true;
+    };
+
+    // Method 1: Look for "Nome do Cliente" label
+    for (let i = 0; i < lines.length; i++) {
+      if (lines[i].includes('Nome do Cliente')) {
+        // Extract from same line
+        const sameLine = lines[i].split('Nome do Cliente')[1]?.trim();
+        if (sameLine && isValidName(sameLine)) {
+          return sameLine;
+        }
+        
+        // Check next lines if not found
+        for (let j = i + 1; j < Math.min(i + 6, lines.length); j++) {
+          const possibleName = lines[j].trim();
+          if (isValidName(possibleName)) {
+            return possibleName;
+          }
+        }
+      }
+    }
+    
+    return '';
+  };
+
+  // Find phone with regex pattern
+  const findPhone = (lines) => {
+    for (let i = 0; i < lines.length; i++) {
+      // Brazilian phone pattern: (DD) 9XXXX-XXXX or (DD) XXXX-XXXX
+      const phonePattern = /[\[\({]?\d{2}[\]\)}]?\s*\d{4,5}[-\s]?\d{4}/;
+      const match = lines[i].match(phonePattern);
+      
+      if (match) {
+        let phone = match[0];
+        
+        // Extract only digits
+        const numbers = phone.replace(/\D/g, '');
+        
+        // Validate 10 or 11 digits (DDD + number)
+        if (numbers.length === 10 || numbers.length === 11) {
+          const ddd = numbers.slice(0, 2);
+          const part1 = numbers.slice(2, numbers.length === 11 ? 7 : 6);
+          const part2 = numbers.slice(numbers.length === 11 ? 7 : 6);
+          
+          return `(${ddd}) ${part1}-${part2}`;
+        }
+      }
+    }
+    return '';
+  };
+
+  // Find address with keyword detection
+  const findAddressAndCEP = (lines) => {
+    const addressKeywords = [
+      'rua', 'quadra', 'lote', 'conjunto', 'qd', 'lt',
+      'avenida', 'av', 'alameda', 'travessa', 'rod',
+      'rodovia', 'estrada', 'praça', 'via', 'trecho',
+      'chácara', 'casa', 'setor', 'núcleo', 'área',
+      'bloco', 'apt', 'apartamento', 'bairro'
+    ];
+
+    for (let i = 0; i < lines.length; i++) {
+      const line = lines[i].toLowerCase();
+      
+      // Check if line contains address keywords
+      if (addressKeywords.some(keyword => line.includes(keyword))) {
+        // Found valid address
+        return lines[i].trim();
+      }
+    }
+    
+    return '';
+  };
+
+  // Extract all data
+  return {
+    clientName: findClientName(linesArray),
+    phone: findPhone(linesArray),
+    address: findAddressAndCEP(linesArray),
+    products: extractProducts(linesArray),
+    totalValue: findTotalValue(linesArray),
+    orderId: findOrderId(linesArray)
+  };
+};
+```
+
+</details>
 
 **Impact:**
 - ✅ **99%+ data quality** after processing
